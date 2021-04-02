@@ -137,8 +137,8 @@ export const Navbar = () => {
         {showPopover && userInfo && (
           <div className="popover-wrapper">
             <Popover>
-              <div>{userInfo.email} </div>
-              <button onClick={handleLogout}>
+              <div className="e-mail-text">{userInfo.email} </div>
+              <button onClick={handleLogout} className="link">
                 <Trans i18nKey="logout" />
               </button>
             </Popover>
