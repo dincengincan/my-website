@@ -1,4 +1,4 @@
-import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { Route, Switch, HashRouter } from "react-router-dom";
 import { I18nextProvider } from "react-i18next";
 import i18n from "./i18n";
 import "./App.css";
@@ -14,7 +14,7 @@ import { LanguageProvider } from "./context/LanguageContext";
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <LanguageProvider>
           <I18nextProvider i18n={i18n}>
             <UserProvider>
@@ -31,7 +31,7 @@ const App = () => {
           </I18nextProvider>
           <Footer />
         </LanguageProvider>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 };
