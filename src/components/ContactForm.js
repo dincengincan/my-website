@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Trans } from "react-i18next";
+import { LanguageContext } from "../context/LanguageContext";
 
 import "./contactForm.css";
 
@@ -17,6 +18,7 @@ const defaultCountryList = [
 ];
 
 export const ContactForm = () => {
+  const { language } = useContext(LanguageContext);
   const {
     register,
     setValue,
@@ -48,8 +50,9 @@ export const ContactForm = () => {
   return (
     <div className="contactUsContainer">
       <h2>
-        <Trans i18nKey="login" />
+        <Trans i18nKey="contact-us" />
       </h2>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className={errors.name ? "erroneousFormRow" : "normalRow"}>
           <label htmlFor="name">
@@ -95,7 +98,10 @@ export const ContactForm = () => {
           />
         </div>
 
-        <div className={errors.country ? "erroneousFormRow" : "normalRow"}>
+        <div
+          id="multiple-input"
+          className={errors.country ? "erroneousFormRow" : "normalRow"}
+        >
           <label>
             <Trans i18nKey="country" />
           </label>
@@ -104,7 +110,10 @@ export const ContactForm = () => {
             placeholder="Search for Country"
             type="text"
             name="filter"
+            autoComplete="off"
+            autoCorrect="off"
           />
+
           <select {...register("country", { required: true })} id="country">
             {countryList.map((country) => {
               return (
@@ -126,8 +135,9 @@ export const ContactForm = () => {
             type="text"
           />
         </div>
+
         <button onClick={handleSubmit} type="submit">
-          <Trans i18nKey="login" />
+          <Trans i18nKey="send" />
         </button>
       </form>
     </div>

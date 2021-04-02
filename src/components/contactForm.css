@@ -16,11 +16,32 @@
 input[type="number"]::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  margin: 0;
 }
 
 .contactUsContainer {
-  width: 20%;
+  width: 400px;
   margin: 0 auto;
   text-align: center;
+}
+
+@media screen and (min-width: 800px) {
+  #multiple-input input,
+  #multiple-input select {
+    width: 120px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .erroneousFormRow,
+  .normalRow {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .contactUsContainer {
+    width: 75%;
+    padding-bottom: 200px;
+  }
 }
