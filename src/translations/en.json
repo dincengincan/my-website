@@ -10,5 +10,6 @@
   "close": "Close",
   "phone": "Phone",
   "country": "Country",
-  "message": "Message"
+  "message": "Message",
+  "send": "Send"
 }
