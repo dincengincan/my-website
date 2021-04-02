@@ -2,8 +2,13 @@
   position: fixed;
   bottom: 0;
   width: 100%;
-  /* Height of the footer*/
   height: 200px;
   background: black;
   color: white;
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    height: 100px;
+  }
 }

@@ -12,3 +12,9 @@
 option {
   background-color: rgb(192, 192, 192);
 }
+
+@media screen and (max-width: 800px) {
+  .language {
+    margin-top: 20px;
+  }
+}
