@@ -43,6 +43,7 @@ const Login = ({ onClose, onSubmit }) => {
             })}
             id="name"
             type="text"
+            className="input-field"
           />
         </div>
 
@@ -57,6 +58,7 @@ const Login = ({ onClose, onSubmit }) => {
             })}
             id="email"
             type="text"
+            className="input-field"
           />
         </div>
 
@@ -70,6 +72,7 @@ const Login = ({ onClose, onSubmit }) => {
             })}
             id="password"
             type="text"
+            className="input-field"
           />
         </div>
         <LanguageSwitcher
