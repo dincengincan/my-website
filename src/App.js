@@ -6,23 +6,30 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 
-function App() {
+import { UserProvider } from "./context/UserContext";
+import { LanguageProvider } from "./context/LanguageContext";
+
+const App = () => {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
-        <Switch>
-          <Route exact path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
+        <UserProvider>
+          <LanguageProvider>
+            <Navbar />
+            <Switch>
+              <Route exact path="/contact">
+                <Contact />
+              </Route>
+              <Route path="/">
+                <Home />
+              </Route>
+            </Switch>
+          </LanguageProvider>
+        </UserProvider>
         <Footer />
       </BrowserRouter>
     </>
   );
-}
+};
 
 export default App;
