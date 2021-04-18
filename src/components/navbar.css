@@ -1,0 +1,48 @@
+.navbar {
+  background-color: gray;
+  height: 100px;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: whitesmoke;
+}
+
+.header {
+  margin: 0 20px;
+  cursor: pointer;
+}
+
+svg {
+  height: 40px;
+  cursor: pointer;
+}
+
+.left-part,
+.right-part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 0 20px;
+}
+
+.link {
+  color: white;
+  background: transparent;
+
+  padding: 5px 10px;
+  margin: 0 5px;
+
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 5px;
+}
+
+.popover-wrapper {
+  position: relative;
+}
+
+.user-info {
+  margin-left: 10px;
+}
