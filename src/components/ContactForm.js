@@ -33,8 +33,8 @@ export const ContactForm = () => {
     const newCountryList = defaultCountryList.filter((country) =>
       country.name.toLowerCase().includes(e.target.value.toLowerCase())
     );
-    if (newCountryList.length === 1) {
-      setValue("country", newCountryList[0].name);
+    if (newCountryList.length) {
+      setValue("country", JSON.stringify(newCountryList[0]));
       clearErrors("country");
     }
     if (!newCountryList.length) {
@@ -96,12 +96,16 @@ export const ContactForm = () => {
           />
           <select {...register("country", { required: true })} id="country">
             {countryList.map((country) => {
-              return <option key={country.id}>{country.name}</option>;
+              return (
+                <option key={country.id} value={JSON.stringify(country)}>
+                  {country.name}
+                </option>
+              );
             })}
           </select>
         </div>
 
-        <div className={errors.message ? "erroneousFormRow" : "normalRow"}>
+        <div className={errors.text ? "erroneousFormRow" : "normalRow"}>
           <label htmlFor="text">Message</label>
           <textarea
             {...register("text", { required: true })}
