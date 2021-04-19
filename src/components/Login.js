@@ -1,5 +1,7 @@
 import { useState, useContext } from "react";
 
+import { useForm } from "react-hook-form";
+
 import "./login.css";
 
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -8,17 +10,17 @@ import { LanguageContext } from "../context/LanguageContext";
 
 const Login = ({ onClose, onSubmit }) => {
   const { language, setLanguage } = useContext(LanguageContext);
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const [languageOnModal, setLanguageOnModal] = useState(language);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const submitForm = (formValues) => {
     setLanguage(languageOnModal);
-    onSubmit({ name, email, password });
+    onSubmit(formValues);
   };
 
   const onLanguageOnModalChange = (language) => {
@@ -29,33 +31,37 @@ const Login = ({ onClose, onSubmit }) => {
     <div className="loginContainer">
       <h2>Login</h2>
       <form>
-        <div className="formRow">
-          <label htmlFor="user-name">Name</label>
+        <div className={errors.name ? "erroneousFormRow" : "formRow"}>
+          <label htmlFor="name">Name</label>
           <input
-            value={name}
-            id="user-name"
+            {...register("name", {
+              required: true,
+            })}
+            id="name"
             type="text"
-            onChange={(e) => setName(e.target.value)}
           />
         </div>
 
-        <div className="formRow">
+        <div className={errors.email ? "erroneousFormRow" : "formRow"}>
           <label htmlFor="email">Email</label>
           <input
-            value={email}
+            {...register("email", {
+              required: true,
+              pattern: /^[a-z0-9._½+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+            })}
             id="email"
             type="text"
-            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
 
-        <div className="formRow">
+        <div className={errors.password ? "erroneousFormRow" : "formRow"}>
           <label htmlFor="password">Password</label>
           <input
-            value={password}
+            {...register("password", {
+              required: true,
+            })}
             id="password"
             type="text"
-            onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <LanguageSwitcher
@@ -67,7 +73,7 @@ const Login = ({ onClose, onSubmit }) => {
       <button onClick={onClose} type="button">
         Close
       </button>
-      <button onClick={handleSubmit} type="submit">
+      <button onClick={handleSubmit(submitForm)} type="submit">
         Login
       </button>
     </div>
