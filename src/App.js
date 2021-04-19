@@ -1,4 +1,6 @@
 import { Route, Switch, BrowserRouter } from "react-router-dom";
+import { I18nextProvider } from "react-i18next";
+import i18n from "./i18n";
 import "./App.css";
 
 import Footer from "./components/Footer";
@@ -13,19 +15,21 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <UserProvider>
-          <LanguageProvider>
-            <Navbar />
-            <Switch>
-              <Route exact path="/contact">
-                <Contact />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
-            </Switch>
-          </LanguageProvider>
-        </UserProvider>
+        <LanguageProvider>
+          <I18nextProvider i18n={i18n}>
+            <UserProvider>
+              <Navbar />
+              <Switch>
+                <Route exact path="/contact">
+                  <Contact />
+                </Route>
+                <Route path="/">
+                  <Home />
+                </Route>
+              </Switch>
+            </UserProvider>
+          </I18nextProvider>
+        </LanguageProvider>
         <Footer />
       </BrowserRouter>
     </>
