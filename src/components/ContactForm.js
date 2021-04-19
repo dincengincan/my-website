@@ -71,15 +71,15 @@ export const ContactForm = () => {
           />
         </div>
 
-        <div className={errors.phone ? "erroneousFormRow" : "normalRow"}>
-          <label htmlFor="phone">Phone</label>
+        <div className={errors.phonenumber ? "erroneousFormRow" : "normalRow"}>
+          <label htmlFor="phonenumber">Phone</label>
           <input
-            {...register("phone", {
+            {...register("phonenumber", {
               minLength: 9,
               maxLength: 10,
               required: true,
             })}
-            id="phone"
+            id="phonenumber"
             autoComplete="off"
             autoCorrect="off"
             type="number"
@@ -102,10 +102,10 @@ export const ContactForm = () => {
         </div>
 
         <div className={errors.message ? "erroneousFormRow" : "normalRow"}>
-          <label htmlFor="message">Message</label>
+          <label htmlFor="text">Message</label>
           <textarea
-            {...register("message", { required: true })}
-            id="message"
+            {...register("text", { required: true })}
+            id="text"
             type="text"
           />
         </div>
