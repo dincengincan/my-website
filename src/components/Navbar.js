@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
+import { Trans } from "react-i18next";
 import "./navbar.css";
 
 import { ReactComponent as Logo } from "../assets/crown.svg";
@@ -67,12 +68,12 @@ export const Navbar = () => {
 
         <div className="right-part">
           <button onClick={handleContactRedirection} className="link">
-            Contact Us
+            <Trans i18nKey="contact-us" />
           </button>
 
           {!userInfo && (
             <button onClick={handleModalOpen} className="link">
-              Login
+              <Trans i18nKey="login" />
             </button>
           )}
 
@@ -86,7 +87,9 @@ export const Navbar = () => {
             <div className="popover-wrapper">
               <Popover>
                 <div>{userInfo.email} </div>
-                <button onClick={handleLogout}>Log out</button>
+                <button onClick={handleLogout}>
+                  <Trans i18nKey="logout" />
+                </button>
               </Popover>
             </div>
           )}

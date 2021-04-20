@@ -1,19 +1,18 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+import en from "./translations/en.json";
+import tr from "./translations/tr.json";
+
 i18n
   .use(initReactI18next) // passes i18n down to react-i18next
   .init({
     resources: {
       EN: {
-        translation: {
-          Homepage: "Homepage",
-        },
+        translation: en,
       },
       TR: {
-        translation: {
-          Homepage: "Anasayfa",
-        },
+        translation: tr,
       },
     },
     lng: "EN",
