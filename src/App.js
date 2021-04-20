@@ -29,8 +29,8 @@ const App = () => {
               </Switch>
             </UserProvider>
           </I18nextProvider>
+          <Footer />
         </LanguageProvider>
-        <Footer />
       </BrowserRouter>
     </>
   );

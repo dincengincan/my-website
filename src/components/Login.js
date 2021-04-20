@@ -1,6 +1,6 @@
 import { useState, useContext } from "react";
-
 import { useForm } from "react-hook-form";
+import { Trans } from "react-i18next";
 
 import "./login.css";
 
@@ -29,10 +29,14 @@ const Login = ({ onClose, onSubmit }) => {
 
   return (
     <div className="loginContainer">
-      <h2>Login</h2>
+      <h2>
+        <Trans i18nKey="login" />
+      </h2>
       <form>
         <div className={errors.name ? "erroneousFormRow" : "formRow"}>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">
+            <Trans i18nKey="name" />
+          </label>
           <input
             {...register("name", {
               required: true,
@@ -43,7 +47,9 @@ const Login = ({ onClose, onSubmit }) => {
         </div>
 
         <div className={errors.email ? "erroneousFormRow" : "formRow"}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">
+            <Trans i18nKey="e-mail" />
+          </label>
           <input
             {...register("email", {
               required: true,
@@ -55,7 +61,9 @@ const Login = ({ onClose, onSubmit }) => {
         </div>
 
         <div className={errors.password ? "erroneousFormRow" : "formRow"}>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">
+            <Trans i18nKey="password" />
+          </label>
           <input
             {...register("password", {
               required: true,
@@ -71,10 +79,10 @@ const Login = ({ onClose, onSubmit }) => {
       </form>
 
       <button onClick={onClose} type="button">
-        Close
+        <Trans i18nKey="close" />
       </button>
       <button onClick={handleSubmit(submitForm)} type="submit">
-        Login
+        <Trans i18nKey="login" />
       </button>
     </div>
   );

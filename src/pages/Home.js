@@ -5,6 +5,7 @@ import { LanguageContext } from "../context/LanguageContext";
 
 export const Home = () => {
   const { language } = useContext(LanguageContext);
+
   return (
     <div>
       <Trans i18nKey="Homepage" />
